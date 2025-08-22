@@ -34,7 +34,7 @@ export default function PasswordGenerator() {
 
   return (
     <div className="container">
-      <GoogleAd slot="YOUR_TOP_AD_SLOT" />
+      <GoogleAd />
       
       <div className="card">
         <h1 className="title">Password Generator</h1>
@@ -117,14 +117,14 @@ export default function PasswordGenerator() {
         )}
       </div>
 
-      <GoogleAd slot="YOUR_SLOT_ID" />
+      <GoogleAd />
       
       <div style={{margin: "2rem 0"}}>
-        <GoogleAd slot="YOUR_SLOT_ID_2" />
+        <GoogleAd />
       </div>
       
       <div style={{margin: "2rem 0"}}>
-        <GoogleAd slot="YOUR_SLOT_ID_3" />
+        <GoogleAd />
       </div>
     </div>
   );
