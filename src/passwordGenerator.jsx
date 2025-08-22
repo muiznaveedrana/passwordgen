@@ -96,8 +96,13 @@ export default function PasswordGenerator() {
     <div className="container">
       <GoogleAd slot="YOUR_TOP_AD_SLOT" />
       
+      <header>
+        <h1 className="title">Free Secure Password Generator - Create Strong Random Passwords</h1>
+        <p className="subtitle">Generate secure, random passwords online with our powerful password maker tool. Create strong passwords with customizable length, symbols, and advanced personalization options.</p>
+      </header>
+      
       <div className="card">
-        <h1 className="title">Password Generator</h1>
+        <h2 className="section-title">Password Generator Settings</h2>
         
         <div className="form-group">
           <label className="label">
@@ -127,7 +132,7 @@ export default function PasswordGenerator() {
 
         {usePersonalization && (
           <div className="personalization-section">
-            <h3 style={{marginBottom: "1.5rem", color: "#333", fontSize: "1.2rem"}}>Personal Information</h3>
+            <h3 style={{marginBottom: "1.5rem", color: "#333", fontSize: "1.2rem"}}>Personalized Password Generation</h3>
             <div className="input-grid">
               <div className="input-group">
                 <label className="input-label">First Name</label>
@@ -161,7 +166,7 @@ export default function PasswordGenerator() {
             </div>
             <div className="pattern-info">
               <small style={{color: "#666", fontStyle: "italic"}}>
-                Generates passwords using your info with character substitutions (a→@, i→!, o→0, s→$)
+                Creates secure personalized passwords using your information with character substitutions (a→@, i→!, o→0, s→$) for enhanced password security
               </small>
             </div>
           </div>
@@ -169,6 +174,7 @@ export default function PasswordGenerator() {
 
         {!usePersonalization && (
           <div className="checkbox-group">
+            <h3 style={{marginBottom: "1rem", color: "#333", fontSize: "1.1rem"}}>Character Types for Strong Passwords</h3>
             <label className="checkbox-label">
               <input
                 type="checkbox"
@@ -176,7 +182,7 @@ export default function PasswordGenerator() {
                 onChange={(e) => setIncludeUppercase(e.target.checked)}
                 className="checkbox-input"
               />
-              Uppercase Letters
+              Uppercase Letters (A-Z)
             </label>
             <label className="checkbox-label">
               <input
@@ -185,7 +191,7 @@ export default function PasswordGenerator() {
                 onChange={(e) => setIncludeLowercase(e.target.checked)}
                 className="checkbox-input"
               />
-              Lowercase Letters
+              Lowercase Letters (a-z)
             </label>
             <label className="checkbox-label">
               <input
@@ -194,7 +200,7 @@ export default function PasswordGenerator() {
                 onChange={(e) => setIncludeNumbers(e.target.checked)}
                 className="checkbox-input"
               />
-              Numbers
+              Numbers (0-9)
             </label>
             <label className="checkbox-label">
               <input
@@ -203,7 +209,7 @@ export default function PasswordGenerator() {
                 onChange={(e) => setIncludeSymbols(e.target.checked)}
                 className="checkbox-input"
               />
-              Symbols
+              Special Symbols (!@#$%^&*)
             </label>
           </div>
         )}
@@ -212,7 +218,7 @@ export default function PasswordGenerator() {
           onClick={generatePassword}
           className="btn-primary"
         >
-          Generate Password
+          Generate Secure Password
         </button>
 
         {password && (
@@ -235,13 +241,70 @@ export default function PasswordGenerator() {
 
       <GoogleAd slot="YOUR_SLOT_ID" />
       
+      <section className="seo-content">
+        <h2>Why Use Our Secure Password Generator?</h2>
+        <p>Creating strong, secure passwords is essential for protecting your online accounts and personal information. Our free password generator tool helps you create random, secure passwords that are virtually impossible to guess or crack.</p>
+        
+        <div className="features-grid">
+          <div className="feature">
+            <h3>Customizable Length</h3>
+            <p>Generate passwords from 4 to 50 characters long to meet any website's password requirements.</p>
+          </div>
+          
+          <div className="feature">
+            <h3>Multiple Character Types</h3>
+            <p>Include uppercase letters, lowercase letters, numbers, and special symbols for maximum password strength.</p>
+          </div>
+          
+          <div className="feature">
+            <h3>Personalization Options</h3>
+            <p>Create memorable yet secure passwords using personal information with character substitutions.</p>
+          </div>
+          
+          <div className="feature">
+            <h3>Secure & Private</h3>
+            <p>All passwords are generated locally in your browser - no data is sent to our servers.</p>
+          </div>
+        </div>
+      </section>
+
       <div style={{margin: "2rem 0"}}>
         <GoogleAd slot="YOUR_SLOT_ID_2" />
       </div>
       
+      <section className="password-tips">
+        <h2>Password Security Best Practices</h2>
+        <ul>
+          <li><strong>Use unique passwords</strong> for each of your online accounts</li>
+          <li><strong>Make passwords long</strong> - aim for at least 12 characters</li>
+          <li><strong>Include all character types</strong> - uppercase, lowercase, numbers, and symbols</li>
+          <li><strong>Avoid personal information</strong> in standard passwords (unless using our personalization feature)</li>
+          <li><strong>Use a password manager</strong> to store your secure passwords safely</li>
+          <li><strong>Enable two-factor authentication</strong> whenever possible</li>
+        </ul>
+      </section>
+      
       <div style={{margin: "2rem 0"}}>
         <GoogleAd slot="YOUR_SLOT_ID_3" />
       </div>
+      
+      <section className="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div className="faq-item">
+          <h3>How secure are the passwords generated by this tool?</h3>
+          <p>Our password generator uses cryptographically secure random number generation to create passwords that are extremely difficult to guess or brute force attack. The longer and more complex your password, the more secure it is.</p>
+        </div>
+        
+        <div className="faq-item">
+          <h3>Are my generated passwords stored anywhere?</h3>
+          <p>No, all password generation happens locally in your web browser. We do not store, log, or transmit any of the passwords you generate.</p>
+        </div>
+        
+        <div className="faq-item">
+          <h3>What makes a strong password?</h3>
+          <p>A strong password is long (12+ characters), uses a mix of uppercase and lowercase letters, numbers, and special symbols, and doesn't contain easily guessable personal information or common words.</p>
+        </div>
+      </section>
     </div>
   );
 }
