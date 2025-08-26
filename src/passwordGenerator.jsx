@@ -164,11 +164,6 @@ export default function PasswordGenerator() {
                 />
               </div>
             </div>
-            <div className="pattern-info">
-              <small style={{color: "#666", fontStyle: "italic"}}>
-                Creates secure personalized passwords using your information with character substitutions (a→@, i→!, o→0, s→$) for enhanced password security
-              </small>
-            </div>
           </div>
         )}
 
