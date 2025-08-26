@@ -97,7 +97,7 @@ export default function PasswordGenerator() {
       <GoogleAd slot="YOUR_TOP_AD_SLOT" />
       
       <header>
-        <h1 className="title">Free Secure Password Generator - Create Strong Random Passwords</h1>
+        <h1 className="title">Free Password Generator</h1>
         <p className="subtitle">Generate secure, random passwords online with our powerful password maker tool. Create strong passwords with customizable length, symbols, and advanced personalization options.</p>
       </header>
       
@@ -215,7 +215,7 @@ export default function PasswordGenerator() {
           onClick={generatePassword}
           className="btn-primary"
         >
-          Generate Secure Password
+          Generate Password
         </button>
 
         {password && (
@@ -236,7 +236,6 @@ export default function PasswordGenerator() {
         )}
       </div>
 
-      <GoogleAd slot="YOUR_SLOT_ID" />
       
       <section className="seo-content">
         <h2>Why Use Our Secure Password Generator?</h2>
