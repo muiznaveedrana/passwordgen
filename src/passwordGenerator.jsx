@@ -104,19 +104,21 @@ export default function PasswordGenerator() {
       <div className="card">
         <h2 className="section-title">Password Generator Settings</h2>
         
-        <div className="form-group">
-          <label className="label">
-            Length: {length}
-          </label>
-          <input
-            type="range"
-            min="4"
-            max="50"
-            value={length}
-            onChange={(e) => setLength(parseInt(e.target.value))}
-            className="range-input"
-          />
-        </div>
+        {!usePersonalization && (
+          <div className="form-group">
+            <label className="label">
+              Length: {length}
+            </label>
+            <input
+              type="range"
+              min="4"
+              max="50"
+              value={length}
+              onChange={(e) => setLength(parseInt(e.target.value))}
+              className="range-input"
+            />
+          </div>
+        )}
 
         <div className="checkbox-group">
           <label className="checkbox-label">
