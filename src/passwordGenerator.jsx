@@ -329,6 +329,10 @@ export default function PasswordGenerator() {
           <p>A strong password is long (12+ characters), uses a mix of uppercase and lowercase letters, numbers, and special symbols, and doesn't contain easily guessable personal information or common words.</p>
         </div>
       </section>
+      
+      <footer style={{textAlign: 'center', padding: '2rem', marginTop: '3rem', borderTop: '1px solid #e0e0e0', color: '#666'}}>
+        <p>© 2025 PasswordGen — Licensed under the MIT License</p>
+      </footer>
     </div>
   );
 }
