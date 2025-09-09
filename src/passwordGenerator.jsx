@@ -21,6 +21,24 @@ export default function PasswordGenerator() {
       .replace(/s/g, '$');
   };
 
+  const getSecureRandomInt = (max) => {
+    const array = new Uint32Array(1);
+    const maxValidValue = Math.floor(0xFFFFFFFF / max) * max;
+    
+    let randomValue;
+    do {
+      crypto.getRandomValues(array);
+      randomValue = array[0];
+    } while (randomValue >= maxValidValue);
+    
+    const result = randomValue % max;
+    
+    // Clear the array from memory
+    array.fill(0);
+    
+    return result;
+  };
+
   const generatePersonalizedPassword = () => {
     if (!firstName || !lastName || !dateOfBirth) {
       setPassword("Please fill in all personal information fields");
@@ -60,7 +78,7 @@ export default function PasswordGenerator() {
     
     const allPatterns = [...basePatterns, ...substitutedPatterns];
     
-    const randomPattern = allPatterns[Math.floor(Math.random() * allPatterns.length)];
+    const randomPattern = allPatterns[getSecureRandomInt(allPatterns.length)];
     setPassword(randomPattern);
   };
 
@@ -83,14 +101,33 @@ export default function PasswordGenerator() {
 
     let result = "";
     for (let i = 0; i < length; i++) {
-      result += charset.charAt(Math.floor(Math.random() * charset.length));
+      result += charset.charAt(getSecureRandomInt(charset.length));
     }
     setPassword(result);
+    
+    // Clear intermediate variables from memory
+    charset = "";
+    result = "";
   };
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(password);
+    
+    // Clear password from memory after copying
+    setTimeout(() => {
+      setPassword("");
+    }, 30000); // Clear after 30 seconds
   };
+
+  // Clear all sensitive data when component unmounts
+  React.useEffect(() => {
+    return () => {
+      setPassword("");
+      setFirstName("");
+      setLastName("");
+      setDateOfBirth("");
+    };
+  }, []);
 
   return (
     <div className="container">
