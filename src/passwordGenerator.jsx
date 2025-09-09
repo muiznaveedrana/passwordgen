@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import GoogleAd from "./components/GoogleAd";
 
 export default function PasswordGenerator() {
   const [password, setPassword] = useState("");
@@ -131,7 +130,6 @@ export default function PasswordGenerator() {
 
   return (
     <div className="container">
-      <GoogleAd slot="YOUR_TOP_AD_SLOT" />
       
       <header>
         <h1 className="title">Free Password Generator</h1>
@@ -301,9 +299,6 @@ export default function PasswordGenerator() {
         </div>
       </section>
 
-      <div style={{margin: "2rem 0"}}>
-        <GoogleAd slot="YOUR_SLOT_ID_2" />
-      </div>
       
       <section className="password-tips">
         <h2>Password Security Best Practices</h2>
@@ -316,10 +311,6 @@ export default function PasswordGenerator() {
           <li><strong>Enable two-factor authentication</strong> whenever possible</li>
         </ul>
       </section>
-      
-      <div style={{margin: "2rem 0"}}>
-        <GoogleAd slot="YOUR_SLOT_ID_3" />
-      </div>
       
       <section className="faq">
         <h2>Frequently Asked Questions</h2>
