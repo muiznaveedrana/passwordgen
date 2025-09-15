@@ -3,22 +3,12 @@ import React, { useState } from "react";
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Safely get current pathname
-  const getCurrentPath = () => {
-    if (typeof window !== 'undefined') {
-      return window.location.pathname;
-    }
-    return '/';
-  };
-
-  const currentPath = getCurrentPath();
-
   const navItems = [
-    { name: "Password Generator", href: "/", active: currentPath === "/" },
-    { name: "Password Checker", href: "/passwordchecker.html", active: currentPath.includes("passwordchecker") },
-    { name: "Breach Checker", href: "/breachchecker.html", active: currentPath.includes("breachchecker") },
-    { name: "Security Quiz", href: "/securityquiz.html", active: currentPath.includes("securityquiz") },
-    { name: "Privacy Policy", href: "/privacy.html", active: currentPath.includes("privacy") }
+    { name: "Password Generator", href: "/", active: window.location.pathname === "/" },
+    { name: "Password Checker", href: "/passwordchecker.html", active: window.location.pathname.includes("passwordchecker") },
+    { name: "Breach Checker", href: "/breachchecker.html", active: window.location.pathname.includes("breachchecker") },
+    { name: "Security Quiz", href: "/securityquiz.html", active: window.location.pathname.includes("securityquiz") },
+    { name: "Privacy Policy", href: "/privacy.html", active: window.location.pathname.includes("privacy") }
   ];
 
   return (
