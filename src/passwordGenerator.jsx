@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Navbar from "./Navbar.jsx";
 
 export default function PasswordGenerator() {
   const [password, setPassword] = useState("");
@@ -23,18 +24,18 @@ export default function PasswordGenerator() {
   const getSecureRandomInt = (max) => {
     const array = new Uint32Array(1);
     const maxValidValue = Math.floor(0xFFFFFFFF / max) * max;
-    
+
     let randomValue;
     do {
       crypto.getRandomValues(array);
       randomValue = array[0];
     } while (randomValue >= maxValidValue);
-    
+
     const result = randomValue % max;
-    
+
     // Clear the array from memory
     array.fill(0);
-    
+
     return result;
   };
 
@@ -129,9 +130,11 @@ export default function PasswordGenerator() {
   }, []);
 
   return (
-    <div className="container">
-      
-      <header>
+    <div>
+      <Navbar />
+      <div className="container">
+
+        <header>
         <h1 className="title">Free Password Generator</h1>
         <p className="subtitle">Generate secure, random passwords online with our powerful password maker tool. Create strong passwords with customizable length, symbols, and advanced personalization options.</p>
       </header>
@@ -271,7 +274,7 @@ export default function PasswordGenerator() {
         )}
       </div>
 
-      
+
       <section className="seo-content">
         <h2>Why Use Our Secure Password Generator?</h2>
         <p>Creating strong, secure passwords is essential for protecting your online accounts and personal information. Our free password generator tool helps you create random, secure passwords that are virtually impossible to guess or crack.</p>
@@ -328,11 +331,37 @@ export default function PasswordGenerator() {
           <h3>What makes a strong password?</h3>
           <p>A strong password is long (12+ characters), uses a mix of uppercase and lowercase letters, numbers, and special symbols, and doesn't contain easily guessable personal information or common words.</p>
         </div>
+
+        <div className="faq-item">
+          <h3>Why do strong passwords matter?</h3>
+          <p>Strong passwords are your first line of defense against cybercriminals. Weak passwords can be easily cracked using automated tools, giving hackers access to your personal accounts, financial information, and sensitive data. A strong password significantly reduces the risk of unauthorized access to your accounts.</p>
+        </div>
+
+        <div className="faq-item">
+          <h3>How does this tool protect my privacy?</h3>
+          <p>Your privacy is our top priority. All password generation occurs entirely in your browser using client-side JavaScript. No passwords, personal information, or usage data is transmitted to our servers. The tool works completely offline once loaded, ensuring your sensitive information never leaves your device.</p>
+        </div>
+
+        <div className="faq-item">
+          <h3>How often should I change my passwords?</h3>
+          <p>You should change your passwords immediately if you suspect a security breach, receive a data breach notification, or if an account shows signs of unauthorized access. For general security, consider changing important passwords every 6-12 months, or use a password manager with unique passwords for each account.</p>
+        </div>
+
+        <div className="faq-item">
+          <h3>Is it safe to use password generators online?</h3>
+          <p>Yes, when using reputable password generators like this one that generate passwords locally in your browser. Always verify that the tool doesn't send your passwords to external servers. Avoid password generators that require internet connectivity to function, as this may indicate server-side processing.</p>
+        </div>
+
+        <div className="faq-item">
+          <h3>What should I do if I forget my generated password?</h3>
+          <p>Since generated passwords are random and complex, it's crucial to store them securely immediately after creation. Use a trusted password manager to save your passwords, or write them down and store them in a secure physical location. Never store passwords in plain text files on your computer or in unsecured notes.</p>
+        </div>
       </section>
       
-      <footer style={{textAlign: 'center', padding: '2rem', marginTop: '3rem', borderTop: '1px solid #e0e0e0', color: '#666'}}>
-        <p>© 2025 PasswordGen — Licensed under the MIT License</p>
-      </footer>
+        <footer style={{textAlign: 'center', padding: '2rem', marginTop: '3rem', borderTop: '1px solid #e0e0e0', color: '#666'}}>
+          <p>© 2025 PasswordGen — Licensed under the MIT License</p>
+        </footer>
+      </div>
     </div>
   );
 }
