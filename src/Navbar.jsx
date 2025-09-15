@@ -7,6 +7,7 @@ export default function Navbar() {
     { name: "Password Generator", href: "/", active: window.location.pathname === "/" },
     { name: "Password Checker", href: "/password-checker.html", active: window.location.pathname.includes("password-checker") },
     { name: "Breach Checker", href: "/breach-checker.html", active: window.location.pathname.includes("breach-checker") },
+    { name: "Security Quiz", href: "/security-quiz.html", active: window.location.pathname.includes("security-quiz") },
     { name: "Privacy Policy", href: "/privacy-policy.html", active: window.location.pathname.includes("privacy") }
   ];
 
