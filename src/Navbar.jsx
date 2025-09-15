@@ -6,6 +6,7 @@ export default function Navbar() {
   const navItems = [
     { name: "Password Generator", href: "/", active: window.location.pathname === "/" },
     { name: "Password Checker", href: "/password-checker.html", active: window.location.pathname.includes("password-checker") },
+    { name: "Breach Checker", href: "/breach-checker.html", active: window.location.pathname.includes("breach-checker") },
     { name: "Privacy Policy", href: "/privacy-policy.html", active: window.location.pathname.includes("privacy") }
   ];
 
