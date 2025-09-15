@@ -1,14 +1,16 @@
 import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   const navItems = [
-    { name: "Password Generator", href: "/", active: window.location.pathname === "/" },
-    { name: "Password Checker", href: "/passwordchecker.html", active: window.location.pathname.includes("passwordchecker") },
-    { name: "Breach Checker", href: "/breachchecker.html", active: window.location.pathname.includes("breachchecker") },
-    { name: "Security Quiz", href: "/securityquiz.html", active: window.location.pathname.includes("securityquiz") },
-    { name: "Privacy Policy", href: "/privacy.html", active: window.location.pathname.includes("privacy") }
+    { name: "Password Generator", href: "/", active: location.pathname === "/" },
+    { name: "Password Checker", href: "/passwordchecker", active: location.pathname.includes("passwordchecker") },
+    { name: "Breach Checker", href: "/breachchecker", active: location.pathname.includes("breachchecker") },
+    { name: "Security Quiz", href: "/securityquiz", active: location.pathname.includes("securityquiz") },
+    { name: "Privacy Policy", href: "/privacy", active: location.pathname.includes("privacy") }
   ];
 
   return (
@@ -33,8 +35,8 @@ export default function Navbar() {
         }}>
           {/* Logo */}
           <div style={{ display: "flex", alignItems: "center" }}>
-            <a
-              href="/"
+            <Link
+              to="/"
               style={{
                 fontSize: "1.5rem",
                 fontWeight: "bold",
@@ -46,7 +48,7 @@ export default function Navbar() {
               }}
             >
               🔐 PasswordGen
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -56,9 +58,9 @@ export default function Navbar() {
             alignItems: "center"
           }} className="desktop-nav">
             {navItems.map((item, index) => (
-              <a
+              <Link
                 key={index}
-                href={item.href}
+                to={item.href}
                 style={{
                   color: "#333",
                   textDecoration: "none",
@@ -82,7 +84,7 @@ export default function Navbar() {
                 }}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -115,9 +117,9 @@ export default function Navbar() {
             paddingTop: "1rem"
           }} className="mobile-nav">
             {navItems.map((item, index) => (
-              <a
+              <Link
                 key={index}
-                href={item.href}
+                to={item.href}
                 style={{
                   color: "#333",
                   textDecoration: "none",
@@ -141,7 +143,7 @@ export default function Navbar() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
         )}
